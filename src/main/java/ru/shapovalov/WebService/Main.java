@@ -2,10 +2,11 @@ package ru.shapovalov.WebService;
 
 import ru.shapovalov.WebService.Validator.ValidationXML;
 
-import javax.xml.validation.Validator;
-
 public class Main {
     public static void main(String[] args) {
+        GetXML getXML = new GetXML();
+        getXML.run();
+
         ValidationXML validationXML = new ValidationXML("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
                 "<request>\n" +
                 "    <request-type>GET-BALANCE</request-type>\n" +
