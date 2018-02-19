@@ -14,6 +14,9 @@ public class User {
         this.sallary = sallary;
     }
 
+    public User(String login, String password) {
+    }
+
     public String getName() {
         return name;
     }
