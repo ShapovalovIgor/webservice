@@ -3,7 +3,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element type="xs:string" name="request-type"/>
-                <xs:element name="extra" maxOccurs="unbounded" minOccurs="0">
+                <xs:element name="extra" maxOccurs="2" minOccurs="2" nillable="false">
                     <xs:complexType>
                         <xs:simpleContent>
                             <xs:extension base="xs:string">
