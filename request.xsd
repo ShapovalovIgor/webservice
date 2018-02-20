@@ -2,7 +2,7 @@
     <xs:element name="request">
         <xs:complexType>
             <xs:sequence>
-                <xs:element type="xs:string" name="request-type"/>
+                <xs:element type="xs:string" name="request-type" maxOccurs="1" minOccurs="1" nillable="false"/>
                 <xs:element name="extra" maxOccurs="2" minOccurs="2" nillable="false">
                     <xs:complexType>
                         <xs:simpleContent>
