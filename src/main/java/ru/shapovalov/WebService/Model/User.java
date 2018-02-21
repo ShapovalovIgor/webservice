@@ -3,18 +3,21 @@ package ru.shapovalov.WebService.Model;
 public class User {
     private String name;
     private String password;
-    private double sallary;
+    private Double balance;
 
     public User() {
     }
 
-    public User(String name, String password, double sallary) {
+    public User(String name, String password, double balance) {
         this.name = name;
         this.password = password;
-        this.sallary = sallary;
+        this.balance = balance;
     }
 
-    public User(String login, String password) {
+    public User(String name, String password) {
+        this.name = name;
+        this.password = password;
+        this.balance = 0.0;
     }
 
     public String getName() {
@@ -25,19 +28,7 @@ public class User {
         return password;
     }
 
-    public double getSallary() {
-        return sallary;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setSallary(double sallary) {
-        this.sallary = sallary;
+    public Double getBalance() {
+        return balance;
     }
 }

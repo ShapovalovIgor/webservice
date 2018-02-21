@@ -1,7 +1,8 @@
-package ru.shapovalov.WebService.Validator;
+package ru.shapovalov.WebService.XMLUtils;
 
-import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+import ru.shapovalov.WebService.Constant;
+import ru.shapovalov.WebService.RequestProcessor;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
@@ -10,8 +11,10 @@ import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.StringReader;
+
+import static ru.shapovalov.WebService.Constant.XML_SCHEMA;
+import static ru.shapovalov.WebService.Constant.XSD_SCHEMA_REQUEST;
 
 public class ValidationXML {
     private String string;
@@ -20,18 +23,17 @@ public class ValidationXML {
         this.string = string;
     }
 
-    public boolean validater() {
+    public boolean validator() {
         SchemaFactory schemaFactory =
-                SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+                SchemaFactory.newInstance(Constant.XML_SCHEMA);
 
         File schemaLocation =
-                new File(new File(".").getAbsolutePath() + "/request.xsd");
+                new File(new File(".").getAbsolutePath() + Constant.XSD_SCHEMA_REQUEST);
         Schema schema = null;
         try {
             schema = schemaFactory.newSchema(schemaLocation);
         } catch (SAXException e) {
             System.out.println("Not found schema file!");
-            e.printStackTrace();
         }
 
         Validator validator = schema.newValidator();
