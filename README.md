@@ -10,10 +10,8 @@ Prerequisites
 Build and Run
 -------------
 
-1. 
-Import mySQL script webservice_user.sql
-2. Run server
-
+1. Import mySQL script webservice_user.sql;
+2. Run server.
 
 <img src="../master/img/funcional_diagram.png" width="750" height="450">
 
