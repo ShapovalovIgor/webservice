@@ -26,6 +26,7 @@ public class ServerXML extends Thread {
             String inXML = null;
             while(true) {
                 inXML = dis.readUTF();
+                inXML = inXML.split("\nrn\n")[1];
                 System.out.println(inXML);
                 ValidationXML validationXML = new ValidationXML(inXML);
                 boolean valid = validationXML.validator();

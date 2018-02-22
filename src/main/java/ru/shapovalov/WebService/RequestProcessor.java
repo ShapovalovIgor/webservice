@@ -85,7 +85,13 @@ public class RequestProcessor {
         try {
             OutputStream sout = socket.getOutputStream();
             DataOutputStream dos = new DataOutputStream(sout);
-            dos.writeUTF(response);
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("POST /webservice HTTP/1.0rn\n");
+            stringBuilder.append("Content-Length: "+response.length()+"rn\n");
+            stringBuilder.append("Content-Type: application/xml\n");
+            stringBuilder.append("rn\n");
+            stringBuilder.append(response);
+            dos.writeUTF(stringBuilder.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }

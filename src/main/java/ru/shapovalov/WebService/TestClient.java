@@ -50,9 +50,18 @@ public class TestClient implements Runnable {
                 Socket clientSocket = new Socket("localhost", 5666);
                 DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
                 DataInputStream inFromServer = new DataInputStream(clientSocket.getInputStream());
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.append("POST /webservice HTTP/1.0rn\n");
+                stringBuilder.append("Content-Length: " + sendXML.length() + "rn\n");
+                stringBuilder.append("Content-Type: application/xml\n");
+                stringBuilder.append("rn\n");
+                stringBuilder.append(sendXML);
+                outToServer.writeUTF(stringBuilder.toString());
                 outToServer.writeUTF(sendXML);
                 outToServer.flush();
                 modifiedSentence = inFromServer.readUTF();
+                modifiedSentence = modifiedSentence.split("\nrn\n")[1];
+
                 System.out.println("FROM SERVER: " + modifiedSentence);
                 try {
                     TimeUnit.MILLISECONDS.sleep(30);

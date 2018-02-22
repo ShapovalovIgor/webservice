@@ -23,7 +23,7 @@ public class Constant {
     public static final String TAG_REQUEST_TYPE = "request-type";
     //Connect
     public static final int PORT = 5666;
-    public static final String ADDRESS = "localhost";
+    public static final String ADDRESS = "127.0.0.1";
     public static final int BACKLOG = 99999;
 
     //Database
@@ -31,6 +31,6 @@ public class Constant {
     public static final String USER_DB = "violet";
     public static final String PASSWORD_DB = "violet";
     //XML
-    public static final String XSD_SCHEMA_REQUEST = "/request.xsd/";
+    public static final String XSD_SCHEMA_REQUEST = "/request.xsd";
     public static final String XML_SCHEMA = "http://www.w3.org/2001/XMLSchema";
 }
