@@ -57,7 +57,6 @@ public class TestClient implements Runnable {
                 stringBuilder.append("rn\n");
                 stringBuilder.append(sendXML);
                 outToServer.writeUTF(stringBuilder.toString());
-                outToServer.writeUTF(sendXML);
                 outToServer.flush();
                 modifiedSentence = inFromServer.readUTF();
                 modifiedSentence = modifiedSentence.split("\nrn\n")[1];
